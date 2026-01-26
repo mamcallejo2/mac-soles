@@ -1,0 +1,226 @@
+/* mac soles Business Card - Olive & Terracotta Theme */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --olive-dark: #3d4f3a;
+  --olive-main: #5c7a52;
+  --olive-light: #8fae85;
+  --olive-pale: #f4f7f3;
+  --terracotta: #c45d3a;
+  --cream: #faf9f7;
+  --white: #ffffff;
+  --black: #2d2d2d;
+  --gray-light: #6b7280;
+  --gray-dark: #374151;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family:
+    "Montserrat",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-weight: 400;
+  background: linear-gradient(
+    135deg,
+    var(--olive-pale) 0%,
+    var(--cream) 100%
+  );
+  background-attachment: fixed;
+  color: var(--black);
+}
+
+/* Page Container - Full Viewport */
+.page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header (Top) */
+.header {
+  padding: 2rem;
+  text-align: center;
+}
+
+.services-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.service-pill {
+  font-size: 0.85rem;
+  color: var(--gray-dark);
+  padding: 0.4rem 0.8rem;
+  background: rgba(92, 122, 82, 0.1);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.service-pill:hover {
+  background: rgba(92, 122, 82, 0.2);
+}
+
+/* Tooltip - always centered below pills */
+.service-pill::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6rem 0.8rem;
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.75rem;
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  width: 280px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+.service-pill:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Center (Main Content) */
+.center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Name - Cormorant Garamond Bold Italic */
+.name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 3.5rem;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--olive-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background-color: var(--olive-main);
+  color: var(--white);
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--olive-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(92, 122, 82, 0.3);
+}
+
+/* Footer (Bottom) */
+.footer {
+  padding: 2rem;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.links a {
+  color: var(--olive-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--black);
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: var(--gray-light);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .services-nav {
+    gap: 0.5rem;
+  }
+
+  .service-pill {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .center {
+    padding: 1rem;
+  }
+
+  .links {
+    gap: 1.25rem;
+  }
+
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: 4rem;
+  }
+}

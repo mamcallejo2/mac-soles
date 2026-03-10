@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mac-soles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --t: #C4612A;
+      --o: #848437;
+      --e: #1A1510;
+      --l: #EDE8DF;
+      --l2: #D5CEBF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--e);
+      color: var(--l);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 2.5rem; }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    #hero {
+      padding: 5rem 0 4.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-text h1 .name-mac {
+      display: block;
+      font-size: 0.46em;
+      letter-spacing: 0.2em;
+      color: var(--o);
+      opacity: 0.7;
+      margin-bottom: 0.1em;
+    }
+
+    .hero-text h1 .name-soles {
+      display: block;
+      color: var(--l);
+    }
+
+    .hero-readings {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      opacity: 0.45;
+    }
+
+    .hero-readings span {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .hero-readings strong {
+      color: var(--t);
+      font-weight: 500;
+      opacity: 1;
+      min-width: 3.5ch;
+    }
+
+    .hero-sub {
+      display: block;
+      margin-top: 1.6rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.2;
+    }
+
+    .hero-logo {
+      width: 520px;
+      flex-shrink: 0;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 680px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-logo { width: 100%; }
+    }
+
+    /* ── EVOLUTION ──────────────────────────────────────── */
+    #evolution {
+      padding: 5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .sec-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0.3;
+      margin-bottom: 3.5rem;
+    }
+
+    .evo-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding-bottom: 4rem;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .evo-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .evo-item.flip { direction: rtl; }
+    .evo-item.flip > * { direction: ltr; }
+
+    .evo-img img { width: 100%; border-radius: 2px; }
+    .evo-img.photo img { filter: saturate(0.8); }
+    .evo-img.sketch img { border: 1px solid rgba(255,255,255,0.07); }
+
+    .evo-v {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--t);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    .evo-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .evo-copy {
+      font-size: 0.87rem;
+      opacity: 0.55;
+      line-height: 1.75;
+      max-width: 40ch;
+    }
+
+    .evo-copy + .evo-copy { margin-top: 0.7rem; }
+
+    /* ── V3 ─────────────────────────────────────────────── */
+    #v3 {
+      padding: 5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .v3-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--t);
+      opacity: 0.22;
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+
+    #v3 h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    .findings {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 2rem;
+    }
+
+    .finding {
+      background: var(--e);
+      padding: 1.6rem;
+    }
+
+    .f-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--t);
+      opacity: 0.65;
+      margin-bottom: 0.55rem;
+    }
+
+    .finding h4 { font-size: 0.87rem; font-weight: 500; margin-bottom: 0.35rem; }
+    .finding p  { font-size: 0.81rem; opacity: 0.42; line-height: 1.65; }
+
+    .v3-note {
+      font-size: 0.84rem;
+      opacity: 0.35;
+      line-height: 1.7;
+      max-width: 56ch;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      opacity: 0.2;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .evo-item, .evo-item.flip { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+      .findings { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header id="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>
+          <span class="name-mac">mac</span>
+          <span class="name-soles">soles</span>
+        </h1>
+        <div class="hero-readings" aria-label="Acronym">
+          <span><strong>M</strong> Machine Learning</span>
+          <span><strong>A</strong> Accessibility</span>
+          <span><strong>C</strong> Creative</span>
+          <span><strong>soles</strong> soluciones (solutions)</span>
+        </div>
+        <span class="hero-sub">The logo story</span>
+      </div>
+      <div class="hero-logo">
+        <img src="logo-v2.png" alt="mac-soles current mark" />
+      </div>
+    </div>
+  </header>
+
+  <!-- EVOLUTION -->
+  <section id="evolution">
+    <div class="wrap">
+      <p class="sec-label">Evolution</p>
+
+      <!-- v0 -->
+      <div class="evo-item">
+        <div class="evo-img photo">
+          <img src="logo.jpg" alt="v0 — hand-painted original" />
+        </div>
+        <div>
+          <p class="evo-v">v0</p>
+          <h3 class="evo-title">The original sketch</h3>
+          <p class="evo-copy">Painted on a wall with a marker. No software, no grid. The SOL + ES concept was there from the start — the terracotta circle is the sun (SOL), and the merged eS glyph inside is the ray (ES). Together: SOLES.</p>
+          <p class="evo-copy">The teal and terracotta palette was intuitive, pulled from Mediterranean colour memory.</p>
+        </div>
+      </div>
+
+      <!-- v1 -->
+      <div class="evo-item flip">
+        <div class="evo-img sketch">
+          <img src="logo-evolution.png" alt="v1 — exploration sketches" />
+        </div>
+        <div>
+          <p class="evo-v">v1</p>
+          <h3 class="evo-title">Finding the mark</h3>
+          <p class="evo-copy">Digitising and refining what was already in v0. Testing scale, composition, how the symbol sits inside the wordmark. The full-sun version with multiple rays was tried but felt too literal — the single eS glyph was always the stronger idea.</p>
+        </div>
+      </div>
+
+      <!-- v2 -->
+      <div class="evo-item">
+        <div class="evo-img">
+          <img src="logo-v2.png" alt="v2 — current mark" />
+        </div>
+        <div>
+          <p class="evo-v">v2</p>
+          <h3 class="evo-title">The current mark</h3>
+          <p class="evo-copy">The wordmark and symbol became one thing. "mac" sits above as a quiet maker's mark. Teal became sage-olive — warmer, less tropical. The terracotta circle stayed exactly as in v0.</p>
+          <p class="evo-copy">SOL (the circle) + ES (the merged glyph inside) = SOLES. The mark doesn't reference the name — it is the name.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- V3 PLACEHOLDER -->
+  <section id="v3">
+    <div class="wrap">
+      <p class="v3-q">?</p>
+      <h2>v3 — What we learned</h2>
+      <div class="findings">
+        <div class="finding">
+          <p class="f-label">Keep</p>
+          <h4>The handmade quality</h4>
+          <p>Blind study confirmed: warm, artisanal, Mediterranean. The concept lands. The imperfection is the personality — just make the imperfections feel chosen.</p>
+        </div>
+        <div class="finding">
+          <p class="f-label">Resolve</p>
+          <h4>The eS glyph reads ambiguous</h4>
+          <p>The eS concept is right, but cold eyes still read it as a music note or shell. V3 needs to make the eS intent legible without over-explaining it.</p>
+        </div>
+        <div class="finding">
+          <p class="f-label">Fix</p>
+          <h4>Green vs orange balance</h4>
+          <p>The sage green is losing the fight against the orange. A slight saturation bump or thicker stroke on the letterforms would restore the balance.</p>
+        </div>
+      </div>
+      <p class="v3-note">"mac" floating above reads as an afterthought. Either commit to it as a small personal signature stamp, or bring it to the same baseline as "soles" and let the full name read as one wordmark.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>mac-soles</span>
+    <span>Brand Identity · March 2026</span>
+  </footer>
+
+</body>
+</html>
